@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage'
 import Header from './components/Header.jsx'
 import AlbumsPage from './pages/AlbumsPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
+import AlbumPhotosPage from './pages/AlbumPhotosPage.jsx'
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
           <Routes>
             <Route index element={<HomePage />} />
             <Route path='/user/:userId/albums/' element={<AlbumsPage />} />
+            <Route
+              path='/albums/:albumId/photos'
+              element={<AlbumPhotosPage />}
+            />
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </AppLayout>
