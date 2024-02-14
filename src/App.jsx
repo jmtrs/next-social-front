@@ -1,10 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
+import theme from './theme'
 
 import Header from './components/Header.jsx'
-
-import theme from './theme'
+import HomePage from './pages/HomePage'
 
 function App() {
   return (
@@ -12,7 +12,9 @@ function App() {
       <Router>
         <Header />
         <AppLayout>
-          <Routes></Routes>
+          <Routes>
+            <Route index element={<HomePage />} />
+          </Routes>
         </AppLayout>
       </Router>
     </ChakraProvider>
