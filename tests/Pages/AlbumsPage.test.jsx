@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { BrowserRouter } from 'react-router-dom'
-import AlbumsPage from '../../src/Pages/AlbumsPage.jsx'
+import AlbumsPage from '../../src/pages/AlbumsPage.jsx'
 import { describe, expect } from '@jest/globals'
 
 jest.mock('react-router-dom', () => ({
