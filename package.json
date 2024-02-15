@@ -12,8 +12,8 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "preview": "vite preview",
-    "docker:build": "docker build -t nextSocial .",
-    "docker:run": "docker run -p 3000:3000 nextSocial",
+    "docker:build": "docker build -t next-social-front .",
+    "docker:run": "docker run -p 3000:3000 next-social-front",
     "docker:stop": "docker stop $(docker ps -aq)",
     "docker:clean": "docker system prune --all --volumes",
     "prepare": "husky"
