@@ -12,9 +12,11 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import useUserStore from '../store/userStore'
+import useVisitedAlbumsStore from '../store/visitedAlbumsStore'
 
 const HomePage = () => {
   const { users, isLoading, error, fetchUsers } = useUserStore()
+  const { visitedAlbums } = useVisitedAlbumsStore()
 
   useEffect(() => {
     fetchUsers()
@@ -31,9 +33,41 @@ const HomePage = () => {
       <Heading as='h2' size='lg' mb={5}>
         Álbumes Recién Visitados
       </Heading>
-      <Text textAlign='center' mb={5}>
-        No has visitado ningún álbum aún
-      </Text>
+      {visitedAlbums.length === 0 && (
+        <Text textAlign='center'>No has visitado ningún álbum aún</Text>
+      )}
+      <SimpleGrid columns={[1, null, 3]} spacing='20px' mb={10}>
+        {visitedAlbums.map(album => (
+          <Box
+            key={album.id}
+            boxShadow='xl'
+            p='6'
+            rounded='md'
+            bg={bg}
+            color={color}
+            as={Link}
+            to={`/albums/${album.albumId}/photos`}
+            maxW='300px'
+            width='100%'
+            display='flex'
+            flexDirection='column'
+            alignItems='center'
+            textAlign='center'
+            justifyContent='center'
+            mx='auto'
+          >
+            <Image
+              src={album.thumbnailUrl}
+              alt='thumbnail'
+              borderRadius='lg'
+              mb={4}
+              boxSize='100%'
+              objectFit='cover'
+            />
+            <Text fontWeight='bold'>{album.title}</Text>
+          </Box>
+        ))}
+      </SimpleGrid>
 
       {isLoading ? (
         <Text>Cargando...</Text>
