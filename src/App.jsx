@@ -9,6 +9,7 @@ import AlbumsPage from './pages/AlbumsPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import AlbumPhotosPage from './pages/AlbumPhotosPage.jsx'
 import UserDetailsPage from './pages/UserDetailsPage.jsx'
+import TodosPage from './pages/TodosPage.jsx'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               element={<AlbumPhotosPage />}
             />
             <Route path='/user/:userId' element={<UserDetailsPage />} />
+            <Route path={'/user/:userId/todos'} element={<TodosPage />} />
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </AppLayout>
